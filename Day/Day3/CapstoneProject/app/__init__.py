@@ -1,0 +1,2 @@
+#this file we wil keep it empty for now, but it is required to make this directory a package
+#this files terll the python to treate the app folder as package, so we can import modules from it in other parts of the application

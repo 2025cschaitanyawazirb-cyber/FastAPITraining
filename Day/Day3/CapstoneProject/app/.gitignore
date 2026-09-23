@@ -1,0 +1,55 @@
+# ==============================================================================
+# FastAPI & Python .gitignore Template
+# ==============================================================================
+
+# Python Caches & Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual Environments (Local setups)
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables & Secrets (CRITICAL for security)
+.env
+.env.*
+!.env.example
+secrets.toml
+
+# Databases & Local State
+*.db
+*.sqlite3
+*.sqlite3-journal
+
+# Application Logs
+logs/
+*.log
+
+# Operating System Metadata
+.DS_Store
+Thumbs.db
+
+# IDEs and Code Editors
+.vscode/
+.idea/
+*.code-workspace
+.cursorignore
+.cursorindexingignore
+
+# Testing & Coverage outputs
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+.hypothesis/
+
+# Deployment & Docker (Optional adjustments)
+.aws/
+.serverless/
