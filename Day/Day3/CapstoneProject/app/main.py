@@ -1,16 +1,24 @@
+# This file is the "entry point" of the application
 from fastapi import FastAPI
+
 from app.config import settings
 from app.database import ping_database
+from app.routers import users
 
-app = FastAPI(title=settings.APP_Name)
+# Creating FastAPI app instance
+app = FastAPI(title=settings.APP_NAME)
 
+app.include_router(users.router)
+
+# This function runs once when the server starts. It checks the DB connection.
 @app.on_event("startup")
-async def startup_event() -> None:
+def on_startup() -> None:
     if not ping_database():
-        raise RuntimeError("could not connect to mongodb database")
-    print(f"Connected to MongoDB database: {settings.APP_Name}")
+        raise RuntimeError("Could not connect to MongoDB")
+    print(f"[startup]Connected to MongoDB. App:{settings.APP_NAME}")
 
-@app.get("/")
-def health_check() -> dict:
-    return {"status":"ok", "API":settings.APP_Name}
-
+# Checks basic health-check API endpoint & confirms 
+# GET / is running & reachable. (/ is considered as 'root')
+@app.get("/",tags=["Health"])
+def health_check():
+    return {"status":"ok","app":settings.APP_NAME}

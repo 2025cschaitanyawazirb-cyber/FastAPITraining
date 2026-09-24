@@ -1,55 +1,84 @@
-# ==============================================================================
-# FastAPI & Python .gitignore Template
-# ==============================================================================
-
-# Python Caches & Byte-compiled files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
 
-# Virtual Environments (Local setups)
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
 .venv/
 venv/
 ENV/
 env/
+env.bak/
+venv.bak/
 
-# Environment Variables & Secrets (CRITICAL for security)
+# Environment variables and secrets (NEVER commit these)
 .env
 .env.*
 !.env.example
 secrets.toml
 
-# Databases & Local State
+# FastAPI / SQL Databases (if using local SQLite for development)
 *.db
+*.sqlite
 *.sqlite3
-*.sqlite3-journal
 
-# Application Logs
+# Logging
 logs/
 *.log
+*.out
 
-# Operating System Metadata
-.DS_Store
-Thumbs.db
-
-# IDEs and Code Editors
-.vscode/
-.idea/
-*.code-workspace
-.cursorignore
-.cursorindexingignore
-
-# Testing & Coverage outputs
-htmlcov/
+# Unit testing / Coverage reports
+.pytest_cache/
+.tox/
+.nox/
 .coverage
 .coverage.*
+.cache
+htmlcov/
 coverage.xml
+*.cover
 .hypothesis/
 
-# Deployment & Docker (Optional adjustments)
-.aws/
-.serverless/
+# Type checkers and linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
